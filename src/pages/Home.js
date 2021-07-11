@@ -1,20 +1,39 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom';
-// import { supabase } from '../Database/Database';
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import Job from "../components/Job";
+import PostJob from "../components/PostJob";
+import db from "../firebase";
+import "./Home.css";
 
 function Home() {
-    const history = useHistory()
+  const [jobs, setJobs] = useState([]);
 
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
+  useEffect(() => {
+    db.collection("jobs")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setJobs(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
+  }, []);
 
-
-    return (
-        <div>
-            <button onClick={() => history.push('./PostJob')}>Job Posting</button>
-            <button onClick={() => history.push('./JobApp')}>Job Applicaton</button>
+  return (
+    <div className="home">
+      <Navbar />
+      <div className="main">
+        <div className="jobs">
+          {jobs.map((job) => (
+            <Job key={job.id} details={job.data} />
+          ))}
         </div>
-    )
+        <PostJob />
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;
