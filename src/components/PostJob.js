@@ -32,6 +32,8 @@ const PostJob = () => {
     setCompany("");
     setSkills("");
     setDescription("");
+    setImageUrl("");
+    setSalary("");
     setExperience("");
     setJobType("");
   };
