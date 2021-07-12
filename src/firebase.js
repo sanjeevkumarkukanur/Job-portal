@@ -1,13 +1,14 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhmw5bV1i_uYluTdpWcPn7zWtasYRqGIw",
-  authDomain: "job-portal-cb7ab.firebaseapp.com",
-  projectId: "job-portal-cb7ab",
-  storageBucket: "job-portal-cb7ab.appspot.com",
-  messagingSenderId: "635431163762",
-  appId: "1:635431163762:web:0ef0501ac34bcc8beb2feb",
+  apiKey: "AIzaSyB8LqE-NWGNFM7IS1tAAirxE5oJW1MgEe4",
+  authDomain: "job-portal-c713b.firebaseapp.com",
+  projectId: "job-portal-c713b",
+  storageBucket: "job-portal-c713b.appspot.com",
+  messagingSenderId: "958747274774",
+  appId: "1:958747274774:web:2a26b7d0495d50ba354f37"
 };
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
